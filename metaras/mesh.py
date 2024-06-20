@@ -7,7 +7,7 @@ import torch
 import torch.nn.functional as F
 import numpy as np
 
-import metadr
+import metaras
 
 
 class Mesh(object):
@@ -63,13 +63,13 @@ class Mesh(object):
         Create a Mesh object from a .obj file
         '''
         if load_texture:
-            vertices, faces, textures = metadr.functional.load_obj(filename_obj,
+            vertices, faces, textures = metaras.functional.load_obj(filename_obj,
                                                      normalization=normalization,
                                                      texture_res=texture_res,
                                                      load_texture=True,
                                                      texture_type=texture_type)
         else:
-            vertices, faces = metadr.functional.load_obj(filename_obj,
+            vertices, faces = metaras.functional.load_obj(filename_obj,
                                            normalization=normalization,
                                            texture_res=texture_res,
                                            load_texture=False)
@@ -80,11 +80,11 @@ class Mesh(object):
         if self.batch_size != 1:
             raise ValueError('Could not save when batch size > 1')
         if save_texture:
-            metadr.functional.save_obj(filename_obj, self.vertices[0], self.faces[0],
+            metaras.functional.save_obj(filename_obj, self.vertices[0], self.faces[0],
                          textures=self.textures[0],
                          texture_res=texture_res_out, texture_type=self.texture_type)
         else:
-            metadr.functional.save_obj(filename_obj, self.vertices[0], self.faces[0], textures=None)
+            metaras.functional.save_obj(filename_obj, self.vertices[0], self.faces[0], textures=None)
 
     @property
     def faces(self):
@@ -100,7 +100,7 @@ class Mesh(object):
 
     @property
     def face_vertices(self):
-        return metadr.functional.face_vertices(self.vertices, self.faces)
+        return metaras.functional.face_vertices(self.vertices, self.faces)
 
     @property
     def surface_normals(self):
@@ -110,17 +110,17 @@ class Mesh(object):
 
     @property
     def vertex_normals(self):
-        return metadr.functional.vertex_normals(self.vertices, self.faces)
+        return metaras.functional.vertex_normals(self.vertices, self.faces)
 
     @property
     def face_textures(self):
         if self.texture_type in ['surface']:
             return self.textures
         elif self.texture_type in ['vertex']:
-            return metadr.functional.face_vertices(self.textures, self.faces)
+            return metaras.functional.face_vertices(self.textures, self.faces)
         else:
             raise ValueError('texture type not applicable')
 
     def voxelize(self, voxel_size=32):
         face_vertices_norm = self.face_vertices * voxel_size / (voxel_size - 1) + 0.5
-        return metadr.functional.voxelization(face_vertices_norm, voxel_size, False)
+        return metaras.functional.voxelization(face_vertices_norm, voxel_size, False)

@@ -7,7 +7,7 @@ import os
 import torch
 from skimage.io import imsave
 
-import metadr.cuda.create_texture_image as create_texture_image_cuda
+import metaras.cuda.create_texture_image as create_texture_image_cuda
 
 
 def create_texture_image(textures, texture_res=16):

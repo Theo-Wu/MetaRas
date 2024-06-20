@@ -6,7 +6,7 @@ import torch.nn as nn
 # This source code is licensed under the MIT license found in the
 # LICENSE file in the root directory of this source tree.
 
-import metadr
+import metaras
 
 
 class AmbientLighting(nn.Module):
@@ -17,7 +17,7 @@ class AmbientLighting(nn.Module):
         self.light_color = light_color
 
     def forward(self, light):
-        return metadr.functional.ambient_lighting(light, self.light_intensity, self.light_color)
+        return metaras.functional.ambient_lighting(light, self.light_intensity, self.light_color)
 
 
 class DirectionalLighting(nn.Module):
@@ -29,7 +29,7 @@ class DirectionalLighting(nn.Module):
         self.light_direction = light_direction
 
     def forward(self, light, normals):
-        return metadr.functional.directional_lighting(light, normals,
+        return metaras.functional.directional_lighting(light, normals,
                                         self.light_intensity, self.light_color,
                                         self.light_direction)
 
@@ -66,6 +66,6 @@ class Lighting(nn.Module):
         faces = mesh.faces
         texture_res = mesh.texture_res
         texture_type = mesh.texture_type
-        mesh = metadr.Mesh(vertices, faces, new_textures, texture_res, texture_type)
+        mesh = metaras.Mesh(vertices, faces, new_textures, texture_res, texture_type)
 
         return mesh

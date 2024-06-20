@@ -8,7 +8,7 @@ import numpy as np
 import torch
 import torch.nn as nn
 
-import metadr
+import metaras
 
 
 def perspective(vertices, angle=30.):
@@ -58,7 +58,7 @@ class Transform(nn.Module):
         textures = mesh.textures
         texture_res = mesh.texture_res
         texture_type = mesh.texture_type
-        return metadr.Mesh(new_vertices, faces, textures, texture_res, texture_type)
+        return metaras.Mesh(new_vertices, faces, textures, texture_res, texture_type)
 
 
 class Projection(Transform):
@@ -119,7 +119,7 @@ class LookAt(Transform):
             self._eye = [0, 0, -(1. / math.tan(math.radians(self.viewing_angle)) + 1)]
 
     def set_eyes_from_angles(self, distances, elevations, azimuths):
-        self._eye = metadr.functional.get_points_from_angles(distances, elevations, azimuths)
+        self._eye = metaras.functional.get_points_from_angles(distances, elevations, azimuths)
 
     def set_eyes(self, eyes):
         self._eye = eyes
@@ -129,7 +129,7 @@ class LookAt(Transform):
         return self._eyes
 
     def transform(self, vertices):
-        vertices = metadr.functional.look_at(vertices, self._eye)
+        vertices = metaras.functional.look_at(vertices, self._eye)
         # perspective transformation
         if self.perspective:
             vertices = perspective(vertices, angle=self.viewing_angle)
@@ -159,7 +159,7 @@ class Look(Transform):
         return self._eyes
 
     def transform(self, vertices):
-        vertices = metadr.functional.look(vertices, self._eye, self.camera_direction)
+        vertices = metaras.functional.look(vertices, self._eye, self.camera_direction)
         # perspective transformation
         if self.perspective:
             vertices = perspective(vertices, angle=self.viewing_angle)

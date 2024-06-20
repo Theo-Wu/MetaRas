@@ -5,10 +5,10 @@
 
 import torch
 from torch.autograd import Function
-import metadr.cuda.generalized_renderer as generalized_renderer_cuda
+import metaras.cuda.generalized_renderer as generalized_renderer_cuda
 
 
-class MetaDRFunction(Function):
+class metarasFunction(Function):
     @staticmethod
     def forward(
             ctx,
@@ -375,9 +375,9 @@ def render(
     wrgb5=None,
     ):
     if face_vertices.device == "cpu":
-        raise TypeError('MetaDR only supports CUDA Tensors.')
+        raise TypeError('metaras only supports CUDA Tensors.')
     
-    return MetaDRFunction.apply(
+    return metarasFunction.apply(
         face_vertices,
         textures,
         image_size,

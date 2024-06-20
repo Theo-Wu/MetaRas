@@ -5,7 +5,7 @@
 
 import torch
 
-import metadr.cuda.voxelization as voxelization_cuda
+import metaras.cuda.voxelization as voxelization_cuda
 
 
 def voxelize_sub1(faces, size, dim):
