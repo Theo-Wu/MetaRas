@@ -1,4 +1,4 @@
-# Learning to Rasterize Differentiably
+# Learning to Rasterize Differentiably (Updating...)
 
 ![teaser](Teaser.jpg "Teaser")
 
