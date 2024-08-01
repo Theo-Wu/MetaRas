@@ -2,7 +2,9 @@
 
 ![teaser](Teaser.jpg "Teaser")
 
-This is the official code implementation for our EGSR 2024 Paper Learning to Rasterize Differentiably.
+This is the official code implementation for our EGSR 2024 Paper [Learning to Rasterize Differentiably](https://theo-wu.github.io/MetaRas/).
+
+This work has another implementation version in **Jax** [here](https://github.com/Theo-Wu/MetaRas-Jax).
 
 ## Requirements 
 CUDA Toolkit (for compilation), and [PyTorch>=1.9.0](https://pytorch.org/get-started/locally/) (matching the CUDA version).
