@@ -42,10 +42,25 @@
   <script src="static/js/bulma-carousel.min.js"></script>
   <script src="static/js/bulma-slider.min.js"></script>
   <script src="static/js/index.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+  <style>
+    .function-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 100%;
+      height: 100%;
+    }
+    .plot-box {
+      height: 100%;
+      width: 100%;
+      margin-top: 10px;
+    }
+  </style>
 </head>
+
 <body>
-
-
   <section class="hero">
     <div class="hero-body">
       <div class="container is-max-desktop">
@@ -166,6 +181,352 @@
   </div>
 </section>
 <!-- End paper abstract -->
+
+<section class="section">
+  <div class="container is-fullhd">
+    <h2 class="title is-4 has-text-centered">Play around with different functions</h2>
+
+    <!-- ✅ Global slider row -->
+    <div class="box has-text-centered" style="margin-bottom: 2rem;">
+      <p><strong>Global Scale:</strong> 10<sup id="globalVal">-1.0</sup></p>
+      <input type="range" min="-1.9" max="1" step="0.1" value="-1" id="globalSlider" style="width: 50%;">
+    </div>
+
+    <div class="columns is-multiline is-variable is-2 is-centered">
+      <!-- Function 1 -->
+      <div class="column is-one-quarter" style="display: flex;">
+        <div class="box function-card has-text-centered is-fullwidth">
+          <p><strong>Heaviside</strong></p>
+          <input type="range" min="-1.9" max="1" step="0.1" value="-1" id="slider1">
+          <p>Scale: 10<sup id="val1">-1.0</sup></span></p>
+          <div id="plot1" class="plot-box"></div>
+        </div>
+      </div>
+
+      <!-- Function 2 -->
+      <div class="column is-one-quarter" style="display: flex;">
+        <div class="box function-card has-text-centered is-fullwidth">
+          <p><strong>Logistic</strong></p>
+          <input type="range" min="-1.9" max="1" step="0.1" value="-1" id="slider2">
+          <p>Scale: 10<sup id="val2">-1.0</sup></span></p>
+          <div id="plot2" class="plot-box"></div>
+        </div>
+      </div>
+
+      <!-- Function 3 -->
+      <div class="column is-one-quarter" style="display: flex;">
+        <div class="box function-card has-text-centered is-fullwidth">
+          <p><strong>Cauchy</strong></p>
+          <input type="range" min="-1.9" max="1" step="0.1" value="-1" id="slider3">
+          <p>Scale: 10<sup id="val3">-1.0</sup></span></p>
+          <div id="plot3" class="plot-box"></div>
+        </div>
+      </div>
+
+      <!-- Function 4 -->
+      <div class="column is-one-quarter" style="display: flex;">
+        <div class="box function-card has-text-centered is-fullwidth">
+          <p><strong>Reciprocal</strong></p>
+          <input type="range" min="-1.9" max="1" step="0.1" value="-1" id="slider4">
+          <p>Scale: 10<sup id="val4">-1.0</sup></span></p>
+          <div id="plot4" class="plot-box"></div>
+        </div>
+      </div>
+
+      <!-- Function 5 -->
+      <div class="column is-one-quarter" style="display: flex;">
+        <div class="box function-card has-text-centered is-fullwidth">
+          <p><strong>Laplace</strong></p>
+          <input type="range" min="-1.9" max="1" step="0.1" value="-1" id="slider5">
+          <p>Scale: 10<sup id="val5">-1.0</sup></span></p>
+          <div id="plot5" class="plot-box"></div>
+        </div>
+      </div>
+
+      <!-- Function 6 -->
+      <div class="column is-one-quarter" style="display: flex;">
+        <div class="box function-card has-text-centered is-fullwidth">
+          <p><strong>Uniform</strong></p>
+          <input type="range" min="-1.9" max="1" step="0.1" value="-1" id="slider6">
+          <p>Scale: 10<sup id="val6">-1.0</sup></span></p>
+          <div id="plot6" class="plot-box"></div>
+        </div>
+      </div>
+
+      <!-- Function 7 -->
+      <div class="column is-one-quarter" style="display: flex;">
+        <div class="box function-card has-text-centered is-fullwidth">
+          <p><strong>Gudermannian</strong></p>
+          <input type="range" min="-1.9" max="1" step="0.1" value="-1" id="slider7">
+          <p>Scale: 10<sup id="val7">-1.0</sup></span></p>
+          <div id="plot7" class="plot-box"></div>
+        </div>
+      </div>
+
+      <!-- Function 8 -->
+      <div class="column is-one-quarter" style="display: flex;">
+        <div class="box function-card has-text-centered is-fullwidth">
+          <p><strong>Cubic Hermite</strong></p>
+          <input type="range" min="-1.9" max="1" step="0.1" value="-1" id="slider8">
+          <p>Scale: 10<sup id="val8">-1.0</sup></span></p>
+          <div id="plot8" class="plot-box"></div>
+        </div>
+      </div>
+
+      <!-- Function 9 -->
+      <div class="column is-one-quarter" style="display: flex;">
+        <div class="box function-card has-text-centered is-fullwidth">
+          <p><strong>Gaussian</strong></p>
+          <input type="range" min="-1.9" max="1" step="0.1" value="-1" id="slider9">
+          <p>Scale: 10<sup id="val9">-1.0</sup></span></p>
+          <div id="plot9" class="plot-box"></div>
+        </div>
+      </div>
+
+      <!-- Function 10 -->
+      <div class="column is-one-quarter" style="display: flex;">
+        <div class="box function-card has-text-centered is-fullwidth">
+          <p><strong>Wigner Semicircle</strong></p>
+          <input type="range" min="-1.9" max="1" step="0.1" value="-1" id="slider10">
+          <p>Scale: 10<sup id="val10">-1.0</sup></span></p>
+          <div id="plot10" class="plot-box"></div>
+        </div>
+      </div>
+
+      <!-- Function 11 -->
+      <div class="column is-one-quarter" style="display: flex;">
+        <div class="box function-card has-text-centered is-fullwidth">
+          <p><strong>Gumbel Max</strong></p>
+          <input type="range" min="-1.9" max="1" step="0.1" value="-1" id="slider11">
+          <p>Scale: 10<sup id="val11">-1.0</sup></span></p>
+          <div id="plot11" class="plot-box"></div>
+        </div>
+      </div>
+
+      <!-- Function 12 -->
+      <div class="column is-one-quarter" style="display: flex;">
+        <div class="box function-card has-text-centered is-fullwidth">
+          <p><strong>Gumbel Min</strong></p>
+          <input type="range" min="-1.9" max="1" step="0.1" value="-1" id="slider12">
+          <p>Scale: 10<sup id="val12">-1.0</sup></span></p>
+          <div id="plot12" class="plot-box"></div>
+        </div>
+      </div>
+
+      <!-- Function 13 -->
+      <div class="column is-one-quarter" style="display: flex;">
+        <div class="box function-card has-text-centered is-fullwidth">
+          <p><strong>Exponential</strong></p>
+          <input type="range" min="-1.9" max="1" step="0.1" value="-1" id="slider13">
+          <p>Scale: 10<sup id="val13">-1.0</sup></span></p>
+          <div id="plot13" class="plot-box"></div>
+        </div>
+      </div>
+
+      <!-- Function 14 -->
+      <div class="column is-one-quarter" style="display: flex;">
+        <div class="box function-card has-text-centered is-fullwidth">
+          <p><strong>Gamma</strong></p>
+          <input type="range" min="-1.9" max="1" step="0.1" value="-1" id="slider14">
+          <p>Scale: 10<sup id="val14">-1.0</sup></span></p>
+          <div id="plot14" class="plot-box"></div>
+        </div>
+      </div>
+
+      <!-- Function 15 -->
+      <div class="column is-one-quarter" style="display: flex;">
+        <div class="box function-card has-text-centered is-fullwidth">
+          <p><strong>Levy</strong></p>
+          <input type="range" min="-1.9" max="1" step="0.1" value="-1" id="slider15">
+          <p>Scale: 10<sup id="val15">-1.0</sup></span></p>
+          <div id="plot15" class="plot-box"></div>
+        </div>
+      </div>
+
+      <!-- Function 16 -->
+      <div class="column is-one-quarter" style="display: flex;">
+        <div class="box function-card has-text-centered is-fullwidth">
+          <p><strong>Negative Levy</strong></p>
+          <input type="range" min="-1.9" max="1" step="0.1" value="-1" id="slider16">
+          <p>Scale: 10<sup id="val16">-1.0</sup></span></p>
+          <div id="plot16" class="plot-box"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script type="module">
+  import { sigmoidFunctions } from './functions.js';
+const layout = {
+  title: false,
+  margin: { l: 30, r: 10, t: 10, b: 30 },
+  xaxis: { title: 'x', range: [-1, 1] },
+  yaxis: { title: 'f(x)', range: [-1.2, 1.2] },
+  height: 240,  // 控制图高
+  width: undefined, // 让 plotly 自动适应父容器宽度
+};
+
+function plotSigmoid(fun, scale, id) {
+  const x = [], y = [];
+  const func = sigmoidFunctions[fun];
+  for (let i = -1; i <= 1; i += 0.02) {
+    x.push(i);
+    const sign = i >= 0 ? 1 : -1; // 确保符号正确
+    y.push(func(Math.abs(i), Math.pow(10, scale), sign));
+  }
+
+  Plotly.newPlot(id, [{x, y, type: 'scatter', mode: 'lines'}], layout, {responsive: true});
+}
+
+// 初始化
+plotSigmoid('heaviside', -1.0, "plot1");
+plotSigmoid('logistic', -1.0, "plot2");
+plotSigmoid('cauchy', -1.0, "plot3");
+plotSigmoid('reciprocal', -1.0, "plot4");
+plotSigmoid('laplace', -1.0, "plot5");
+plotSigmoid('uniform', -1.0, "plot6");
+plotSigmoid('gudermannian', -1.0, "plot7");
+plotSigmoid('cubic_hermite', -1.0, "plot8");
+plotSigmoid('gaussian', -1.0, "plot9");
+plotSigmoid('wigner_semicircle', -1.0, "plot10");
+plotSigmoid('gumbel_max', -1.0, "plot11");
+plotSigmoid('gumbel_min', -1.0, "plot12");
+plotSigmoid('exponential', -1.0, "plot13");
+plotSigmoid('gamma', -1.0, "plot14");
+plotSigmoid('levy', -1.0, "plot15");
+plotSigmoid('neg_levy', -1.0, "plot16");
+
+// 事件绑定
+// 使用字符串而不是函数
+const sliders = [
+  { id: 'slider1', valId: 'val1', plotId: 'plot1', funcName: 'heaviside' },
+  { id: 'slider2', valId: 'val2', plotId: 'plot2', funcName: 'logistic' },
+  { id: 'slider3', valId: 'val3', plotId: 'plot3', funcName: 'cauchy' },
+  { id: 'slider4', valId: 'val4', plotId: 'plot4', funcName: 'reciprocal' },
+  { id: 'slider5', valId: 'val5', plotId: 'plot5', funcName: 'laplace' },
+  { id: 'slider6', valId: 'val6', plotId: 'plot6', funcName: 'uniform' },
+  { id: 'slider7', valId: 'val7', plotId: 'plot7', funcName: 'gudermannian' },
+  { id: 'slider8', valId: 'val8', plotId: 'plot8', funcName: 'cubic_hermite' },
+  { id: 'slider9', valId: 'val9', plotId: 'plot9', funcName: 'gaussian' },
+  { id: 'slider10', valId: 'val10', plotId: 'plot10', funcName: 'wigner_semicircle' },
+  { id: 'slider11', valId: 'val11', plotId: 'plot11', funcName: 'gumbel_max' },
+  { id: 'slider12', valId: 'val12', plotId: 'plot12', funcName: 'gumbel_min' },
+  { id: 'slider13', valId: 'val13', plotId: 'plot13', funcName: 'exponential' },
+  { id: 'slider14', valId: 'val14', plotId: 'plot14', funcName: 'gamma' },
+  { id: 'slider15', valId: 'val15', plotId: 'plot15', funcName: 'levy' },
+  { id: 'slider16', valId: 'val16', plotId: 'plot16', funcName: 'neg_levy' }
+];
+
+// 设置全局滑动条逻辑
+document.getElementById("globalSlider").addEventListener("input", (e) => {
+  const scaleExp = parseFloat(e.target.value);
+  document.getElementById("globalVal").textContent = scaleExp.toFixed(1);
+  sliders.forEach(({ id, valId, plotId, funcName }) => {
+    document.getElementById(id).value = scaleExp;
+    document.getElementById(valId).textContent = scaleExp.toFixed(1);
+    plotSigmoid(funcName, scaleExp, plotId);
+  });
+});
+
+document.getElementById("slider1").addEventListener("input", e => {
+  const val = parseFloat(e.target.value);
+  document.getElementById("val1").textContent = val.toFixed(1);
+  plotSigmoid('heaviside', val, "plot1");
+});
+
+document.getElementById("slider2").addEventListener("input", e => {
+  const val = parseFloat(e.target.value);
+  document.getElementById("val2").textContent = val.toFixed(1);
+  plotSigmoid('logistic', val, "plot2");
+});
+
+document.getElementById("slider3").addEventListener("input", e => {
+  const val = parseFloat(e.target.value);
+  document.getElementById("val3").textContent = val.toFixed(1);
+  plotSigmoid('cauchy', val, "plot3");
+});
+
+document.getElementById("slider4").addEventListener("input", e => {
+  const val = parseFloat(e.target.value);
+  document.getElementById("val4").textContent = val.toFixed(1);
+  plotSigmoid('reciprocal', val, "plot4");
+});
+
+document.getElementById("slider5").addEventListener("input", e => {
+  const val = parseFloat(e.target.value);
+  document.getElementById("val5").textContent = val.toFixed(1);
+  plotSigmoid('laplace', val, "plot5");
+});
+
+document.getElementById("slider6").addEventListener("input", e => {
+  const val = parseFloat(e.target.value);
+  document.getElementById("val6").textContent = val.toFixed(1);
+  plotSigmoid('uniform', val, "plot6");
+});
+
+document.getElementById("slider7").addEventListener("input", e => {
+  const val = parseFloat(e.target.value);
+  document.getElementById("val7").textContent = val.toFixed(1);
+  plotSigmoid('gudermannian', val, "plot7");
+});
+
+document.getElementById("slider8").addEventListener("input", e => {
+  const val = parseFloat(e.target.value);
+  document.getElementById("val8").textContent = val.toFixed(1);
+  plotSigmoid('cubic_hermite', val, "plot8");
+});
+
+document.getElementById("slider9").addEventListener("input", e => {
+  const val = parseFloat(e.target.value);
+  document.getElementById("val9").textContent = val.toFixed(1);
+  plotSigmoid('gaussian', val, "plot9");
+});
+
+document.getElementById("slider10").addEventListener("input", e => {
+  const val = parseFloat(e.target.value);
+  document.getElementById("val10").textContent = val.toFixed(1);
+  plotSigmoid('wigner_semicircle', val, "plot10");
+});
+
+document.getElementById("slider11").addEventListener("input", e => {
+  const val = parseFloat(e.target.value);
+  document.getElementById("val11").textContent = val.toFixed(1);
+  plotSigmoid('gumbel_max', val, "plot11");
+});
+
+document.getElementById("slider12").addEventListener("input", e => {
+  const val = parseFloat(e.target.value);
+  document.getElementById("val12").textContent = val.toFixed(1);
+  plotSigmoid('gumbel_min', val, "plot12");
+});
+
+document.getElementById("slider13").addEventListener("input", e => {
+  const val = parseFloat(e.target.value);
+  document.getElementById("val13").textContent = val.toFixed(1);
+  plotSigmoid('exponential', val, "plot13");
+});
+
+document.getElementById("slider14").addEventListener("input", e => {
+  const val = parseFloat(e.target.value);
+  document.getElementById("val14").textContent = val.toFixed(1);
+  plotSigmoid('gamma', val, "plot14");
+});
+
+document.getElementById("slider15").addEventListener("input", e => {
+  const val = parseFloat(e.target.value);
+  document.getElementById("val15").textContent = val.toFixed(1);
+  plotSigmoid('levy', val, "plot15");
+});
+
+document.getElementById("slider16").addEventListener("input", e => {
+  const val = parseFloat(e.target.value);
+  document.getElementById("val16").textContent = val.toFixed(1);
+  plotSigmoid('neg_levy', val, "plot16");
+});
+
+</script>
 
 <section class="section hero is-light">
   <div class="columns is-centered has-text-centered">
